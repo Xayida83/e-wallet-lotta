@@ -1,0 +1,62 @@
+.card {
+  max-width: 16rem;
+  height: 10rem;
+  border-radius: 15px;
+  padding: 20px;
+  color: white;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.cardChip {
+  width: 40px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+.cardDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardNumber {
+  font-size: 1.4em;
+  letter-spacing: 2px;
+}
+
+.cardholder {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.expiryDate {
+  font-size: 0.9em;
+}
+
+.cardLogo {
+  width: 5rem;
+  align-self: flex-end;
+}
+.cardLogo img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.mastercard {
+  background-color: gold;
+}
+
+.visa {
+  background-color: lightblue;
+}
