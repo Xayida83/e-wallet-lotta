@@ -2,8 +2,7 @@ import { Link } from 'react-router-dom';
 import styles from './Button.module.css';
 
 const Button = ({ label, to, type, onClick }) => {
-  if (type === 'link') {
-    // Returnera länk-knapp om type är "link"
+  if (to) {
     return (
       <Link to={to} className={styles.button}>
         {label}

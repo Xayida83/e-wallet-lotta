@@ -58,10 +58,11 @@ const AddCard = () => {
     }
 
     const newCard = {
+      id: Date.now().toString(), //* Generera ett unikt ID baserat på nuvarande tid
       cardholder,
       cardNumber,
-      expireMonth: month,
-      expireYear: year,
+      expireMonth: expiryDate.split('/')[0], //* Separera MM från MM/YY
+      expireYear: expiryDate.split('/')[1],  
       cvc,
       issuer,
     };
