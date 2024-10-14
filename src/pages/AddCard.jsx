@@ -147,6 +147,7 @@ const AddCard = () => {
           </select>
         </div>
         <Button label="Add Card" type="submit" />
+        <Button label="Cancal" type="button" onClick={() => navigate('/')} />
       </form>
     </div>
   );
