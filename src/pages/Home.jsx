@@ -3,24 +3,10 @@ import Card from "../components/Card";
 import { useState } from "react";
 import styles from './Home.module.css';
 import Button from "../components/Button";
+import { useSelector } from "react-redux";
 
 const Home = () => {
-  const [cards, setCards] = useState([
-    {
-      cardholder: "Brandon Duarte Tsegai",
-      cardNumber: "5000 0000 0000 0000",
-      expireMonth: "12",
-      expireYear: "25",
-      issuer: "MasterCard"
-    },
-    {
-      cardholder: "Jesper Engdahl",
-      cardNumber: "4111 1111 1111 1111",
-      expireMonth: "11",
-      expireYear: "24",
-      issuer: "Visa"
-    }
-  ]);
+  const cards = useSelector((state) => state.cards.cards);
 
   const maxCards = 4;
 
@@ -42,7 +28,7 @@ const Home = () => {
       </ul>
        {/* Visa "Add New Card"-knappen endast om användaren har färre än 4 kort */}
       {cards.length < maxCards ? (
-        <Button label="Add New Card" to="/addcard" />
+        <Button label="Add New Card" to="/addcard" type="link" />
       ) : (
         <p>You have reached the maximum number of cards (4).</p>
       )}       
