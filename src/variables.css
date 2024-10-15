@@ -12,20 +12,39 @@
   --bg-color-dark: #242424;
   --text-color-dark: #ffffff;
 
-  /* Green Theme */
+  /* Season/holiday theme */
   --bg-color-season: #ebb40d;
   --text-color-season: #070345;
 
-  /* Default colors */
-  --bg-color: var(--bg-color-dark);
-  --text-color: var(--text-color-dark);
-
   /* Margins and paddings */
-  --padding-small: 8px;
+  --padding-small: 1rem;
   --padding-medium: 16px;
   --padding-large: 24px;
 
-  --margin-small: 8px;
+  --margin-small: 1rem;
   --margin-medium: 16px;
   --margin-large: 24px;
+
+  /* Buttons */
+  --button-bg-color-dark: #242424;
+  --button-text-color-dark: #ffffff;
+  --button-box-shadow-color-dark: #ffffff;
+  --button-border-dark: solid 1px #ffffff;
+
+
+  --button-bg-color-light: #f8f9fa;
+  --button-text-color-light: #000000;
+  --button-box-shadow-color-light: #e16565;
+  --button-border-light: solid 1px #ec4343;
+
+ 
+
+
+  --button-bg-color-season: #0f0b05;
+  --button-text-color-season: #d7d721;
+  --button-box-shadow-color-season: #d3ee3a;
+  --button-border-season: solid 6px #bb9a15;
+
+
 }
+
