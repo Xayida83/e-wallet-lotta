@@ -3,6 +3,16 @@
   flex-direction: column;
   align-items: center;
 }
+
+.settingsIcon {
+  margin-left: auto;
+  padding: 1rem;
+  img {
+    width: 30px;
+    height: auto;
+    
+  }
+}
 .cardList {
   list-style: none;
   display: flex;

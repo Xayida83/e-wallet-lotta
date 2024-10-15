@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addCard } from '../redux/cardSlice';
 import { useNavigate } from 'react-router-dom';

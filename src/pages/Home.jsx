@@ -3,6 +3,8 @@ import styles from './Home.module.css';
 import Button from "../components/Button";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import gear from '../assets/images/gear.svg'
+
 
 
 const Home = () => {
@@ -14,6 +16,9 @@ const Home = () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.settingsIcon}>
+        <img src={gear} alt="Settings" onClick={() => navigate('/settings')}/>
+      </div>
       <h1>Your Cards</h1>
       <ul className={styles.cardList}>
         {cards.map((card, index) => (
