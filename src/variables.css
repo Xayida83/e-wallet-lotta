@@ -1,0 +1,31 @@
+:root {
+  --font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-size: 16px;
+  --line-height: 1.5;
+  --font-weight: 400;
+
+  /* Light Theme */
+  --bg-color-light: #ffffff;
+  --text-color-light: #050505;
+
+  /* Dark Theme */
+  --bg-color-dark: #242424;
+  --text-color-dark: #ffffff;
+
+  /* Green Theme */
+  --bg-color-season: #ebb40d;
+  --text-color-season: #070345;
+
+  /* Default colors */
+  --bg-color: var(--bg-color-dark);
+  --text-color: var(--text-color-dark);
+
+  /* Margins and paddings */
+  --padding-small: 8px;
+  --padding-medium: 16px;
+  --padding-large: 24px;
+
+  --margin-small: 8px;
+  --margin-medium: 16px;
+  --margin-large: 24px;
+}
