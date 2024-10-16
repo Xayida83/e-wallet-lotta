@@ -5,6 +5,9 @@ import { updateCard, deleteCard, activateCard } from '../redux/cardSlice';
 import Button from '../components/Button'; // Importera din Button-komponent
 import Card from '../components/Card'; // Använd befintlig Card-komponent
 import styles from './CardDetail.module.css'; // Antag att vi använder CSS-moduler för stilar
+import { validateForm } from '../helpers/validateForm';
+import CardForm from '../components/CardForm';
+
 
 const CardDetail = () => {
   const { id } = useParams(); // Hämta kortets ID från URL
@@ -15,6 +18,7 @@ const CardDetail = () => {
   const card = useSelector((state) => state.cards.cards.find((card) => card.id === id));
   const activeCardId = useSelector((state) => state.cards.activeCardId); // Hämta det aktiva kortets ID
 
+  const [errors, setErrors] = useState({});
   const [editedCard, setEditedCard] = useState({ ...card }); // Lokalt tillstånd för att redigera kortet
 
   if (!card) {
@@ -23,8 +27,16 @@ const CardDetail = () => {
 
   const handleSave = (e) => {
     e.preventDefault();
-    dispatch(updateCard(editedCard)); // Uppdatera kortet i Redux
-    navigate('/'); // Navigera till startsidan efter att kortet har sparats
+    const validationErrors = validateForm({
+      expiryDate: `${editedCard.expireMonth}/${editedCard.expireYear}`,
+      cvc: editedCard.cvc,
+    });
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors); // Sätt errors om validering misslyckas
+      return;
+    }
+    dispatch(updateCard(editedCard));
+    navigate('/');
   };
 
   const handleActivate = () => {
@@ -53,84 +65,26 @@ const CardDetail = () => {
       </div>
 
       {/* Redigeringsformulär */}
-      <form className={styles.cardForm} onSubmit={handleSave}>
-        <div>
-          <label>Card Number:</label>
-          <input
-            type="text"
-            value={editedCard.cardNumber}
-            onChange={(e) => setEditedCard({ ...editedCard, cardNumber: e.target.value })}
-            pattern="\d{16}"
-            maxLength="16"
-            title="16 digits required"
-            required
-            disabled={isCardActive} // Förhindra redigering om kortet är aktivt
-          />
-        </div>
-
-        <div>
-          <label>Cardholder Name:</label>
-          <input
-            type="text"
-            value={editedCard.cardholder}
-            onChange={(e) => setEditedCard({ ...editedCard, cardholder: e.target.value })}
-            required
-            disabled={isCardActive} // Förhindra redigering om kortet är aktivt
-          />
-        </div>
-
-        <div className={styles.row}>
-          <div>
-            <label>Expiry Date (MM/YY):</label>
-            <input
-              type="text"
-              value={`${editedCard.expireMonth}/${editedCard.expireYear}`}
-              onChange={(e) => {
-                const [month, year] = e.target.value.split('/');
-                setEditedCard({ ...editedCard, expireMonth: month, expireYear: year });
-              }}
-              pattern="^(0[1-9]|1[0-2])\/\d{2}$"
-              title="MM/YY format required"
-              required
-              disabled={isCardActive} // Förhindra redigering om kortet är aktivt
-            />
-          </div>
-
-          <div>
-            <label>CVC:</label>
-            <input
-              type="text"
-              value={editedCard.cvc}
-              onChange={(e) => setEditedCard({ ...editedCard, cvc: e.target.value })}
-              maxLength="3"
-              pattern="\d{3}"
-              title="3 digits required"
-              required
-              disabled={isCardActive} // Förhindra redigering om kortet är aktivt
-            />
-          </div>
-        </div>
-
-        <div>
-          <label>Vendor:</label>
-          <select
-            value={editedCard.issuer}
-            onChange={(e) => setEditedCard({ ...editedCard, issuer: e.target.value })}
-            disabled={isCardActive} // Förhindra redigering om kortet är aktivt
-          >
-            <option value="MasterCard">MasterCard</option>
-            <option value="Visa">Visa</option>
-            <option value="AmericanExpress">American Express</option>
-            <option value="Nordea">Nordea</option>
-          </select>
-        </div>
-
-        {isCardActive ? (
-          <Button label="Back" type="button" to="/" />
-        ) : (
-          <Button label="Save changes" type="submit" />
-        )}
-      </form>
+      {!isCardActive && (
+        <CardForm
+          cardholder={editedCard.cardholder}
+          setCardholder={(val) => setEditedCard({ ...editedCard, cardholder: val })}
+          cardNumber={editedCard.cardNumber}
+          setCardNumber={(val) => setEditedCard({ ...editedCard, cardNumber: val })}
+          expiryDate={`${editedCard.expireMonth}/${editedCard.expireYear}`}
+          setExpiryDate={(val) => {
+            const [month, year] = val.split('/');
+            setEditedCard({ ...editedCard, expireMonth: month, expireYear: year });
+          }}
+          cvc={editedCard.cvc}
+          setCvc={(val) => setEditedCard({ ...editedCard, cvc: val })}
+          issuer={editedCard.issuer}
+          setIssuer={(val) => setEditedCard({ ...editedCard, issuer: val })}
+          handleSubmit={handleSave}
+          errors={errors}
+        />
+      )}
+      
 
       {/* Aktivera och radera knappar */}
       <div className={styles.actions}>
@@ -142,6 +96,7 @@ const CardDetail = () => {
 
         {/* Om kortet är aktivt, visa ett meddelande */}
         {isCardActive && <p>This card is active and cannot be edited or deleted.</p>}
+        <Button label="Back" to="/" />
       </div>
     </div>
   );
