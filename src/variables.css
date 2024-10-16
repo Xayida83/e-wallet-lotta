@@ -1,12 +1,13 @@
 :root {
   --font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   --font-size-xsmall: 12px;
-  --font-size-small: 16px;
+  --font-size-small: 1rem;
   --font-size-medium: 24px;
   --font-size-large: 34px;
 
   --line-height: 1.5;
   --font-weight: 400;
+  --font-weight-fat: 700;
 
   /* Margins and paddings */
   --padding-small: 1rem;
@@ -19,6 +20,7 @@
 
   --border-radius: 5px;
 
-
+  --button-width: 90%;
+  --button-padding: 1rem 0; 
 }
 

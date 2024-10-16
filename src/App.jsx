@@ -3,18 +3,12 @@ import Home from "./pages/Home";
 import AddCard from "./pages/AddCard";
 import CardDetail from "./pages/CardDetail";
 import Settings from "./pages/Settings";
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import applyTheme from "./utils/themeUtils";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./theme/GlobalStyle";
 
 function App() {
-  const theme = useSelector((state) => state.settings.theme); // Hämta det valda temat från Redux
-
-  useEffect(() => {
-    applyTheme(theme); 
-  }, [theme]);
+  const theme = useSelector((state) => state.settings.theme); //* Hämta det valda temat från Redux
 
   return (
     <ThemeProvider theme={theme}>

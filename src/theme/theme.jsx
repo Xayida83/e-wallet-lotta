@@ -21,7 +21,7 @@ export const darkTheme = {
 export const seasonTheme = {
   buttonBg: '#28a745',
   buttonText: '#ffffff',
-  buttonShadow  : '0px 0px 6px #b26565',
+  buttonShadow  : '2px 2px 15px #ec2020',
   buttonBorder:'solid 1px #000000',
 
   bgColor: '#004d00',
