@@ -12,6 +12,13 @@ const Home = () => {
   const activeCardId = useSelector((state) => state.cards.activeCardId);
   const navigate = useNavigate();
 
+  //* Sortera så att det aktiva kortet ligger först genom att skapa en kopia av kortlistan och sorterar den baserat på om kortets id är samma som activeCardId
+  const sortedCards = [...cards].sort((a, b) => {
+    if (a.id === activeCardId) return -1; //* Placera aktivt kort överst
+    if (b.id === activeCardId) return 1;
+    return 0;
+  });
+
   const maxCards = 4;
 
   return (
@@ -21,7 +28,7 @@ const Home = () => {
       </div>
       <h1>Your Cards</h1>
       <ul className={styles.cardList}>
-        {cards.map((card, index) => (
+        {sortedCards.map((card, index) => (
           <li key={index}>
             <div onClick={() => navigate(`/card/${card.id}`)}>
               {card.id === activeCardId && <p>Active Card</p>}
