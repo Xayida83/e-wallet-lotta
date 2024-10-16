@@ -24,6 +24,7 @@ const Home = () => {
         {cards.map((card, index) => (
           <li key={index}>
             <div onClick={() => navigate(`/card/${card.id}`)}>
+              {card.id === activeCardId && <p>Active Card</p>}
               <Card
                 cardholder={card.cardholder}
                 cardNumber={card.cardNumber}
@@ -31,7 +32,6 @@ const Home = () => {
                 expireYear={card.expireYear}
                 issuer={card.issuer}
               />
-              {card.id === activeCardId && <p>Active Card</p>}
             </div>
           </li>
         ))}

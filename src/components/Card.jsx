@@ -1,6 +1,7 @@
 import styles from './Card.module.css';
 import visa from '../assets/images/visa.svg'
 import mastercard from '../assets/images/mastercard.svg'
+import ankademin from '../assets/images/ankademin.png'
 
 const Card = ({ cardholder, cardNumber, expireMonth, expireYear, issuer }) => {
   return (
@@ -21,6 +22,7 @@ const Card = ({ cardholder, cardNumber, expireMonth, expireYear, issuer }) => {
         <div className={styles.cardLogo}>
           {issuer === "MasterCard" && <img src={mastercard} alt="MasterCard Logo" />}
           {issuer === "Visa" && <img src={visa} alt="Visa Logo" />}
+          {issuer === "Ankademin" && <img src={ankademin} alt="Ankademin Logo" />}
         </div>
       </div>
     </div>

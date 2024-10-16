@@ -143,7 +143,7 @@ const AddCard = () => {
           <select value={issuer} onChange={(e) => setIssuer(e.target.value)}>
             <option value="MasterCard">MasterCard</option>
             <option value="Visa">Visa</option>
-            <option value="AmericanExpress">American Express</option>
+            <option value="Ankademin">Ankademin</option>
           </select>
         </div>
         <Button label="Add Card" type="submit" />

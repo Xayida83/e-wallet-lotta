@@ -126,7 +126,7 @@ const CardDetail = () => {
         </div>
 
         {isCardActive ? (
-          <Button label="Back" type="button" onClick={() => navigate('/')} />
+          <Button label="Back" type="button" to="/" />
         ) : (
           <Button label="Save changes" type="submit" />
         )}

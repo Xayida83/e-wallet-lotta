@@ -22,3 +22,7 @@
   gap: 1rem;
   padding: 0;
 }
+
+p {
+  margin: 0;
+}
