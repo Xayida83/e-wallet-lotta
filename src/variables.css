@@ -25,6 +25,8 @@
   --margin-medium: 16px;
   --margin-large: 24px;
 
+  --border-radius: 5px;
+
   /* Buttons */
   --button-bg-color-dark: #242424;
   --button-text-color-dark: #ffffff;
@@ -38,8 +40,6 @@
   --button-border-light: solid 1px #ec4343;
 
  
-
-
   --button-bg-color-season: #0f0b05;
   --button-text-color-season: #d7d721;
   --button-box-shadow-color-season: #d3ee3a;

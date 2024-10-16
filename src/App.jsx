@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import applyTheme from "./utils/themeUtils";
 import { ThemeProvider } from "styled-components";
+import GlobalStyle from "./theme/GlobalStyle";
 
 function App() {
   const theme = useSelector((state) => state.settings.theme); // Hämta det valda temat från Redux
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Router>
         <div>
           <Routes>
