@@ -6,25 +6,28 @@ import Settings from "./pages/Settings";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import applyTheme from "./utils/themeUtils";
+import { ThemeProvider } from "styled-components";
 
 function App() {
-  const theme = useSelector((state) => state.settings.theme); // Hämta valt tema från Redux
+  const theme = useSelector((state) => state.settings.theme); // Hämta det valda temat från Redux
 
   useEffect(() => {
     applyTheme(theme); 
   }, [theme]);
 
   return (
-    <Router>
-      <div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/addcard" element={<AddCard />} />
-          <Route path="/card/:id" element={<CardDetail />} />
-          <Route path="/settings" element={<Settings />} />
-        </Routes>
-      </div>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/addcard" element={<AddCard />} />
+            <Route path="/card/:id" element={<CardDetail />} />
+            <Route path="/settings" element={<Settings />} />
+          </Routes>
+        </div>
+      </Router>
+    </ThemeProvider>
   )
 }
 

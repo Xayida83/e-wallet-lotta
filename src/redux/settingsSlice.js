@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import applyTheme from '../utils/themeUtils';
+import { lightTheme } from '../theme/theme'; // Importera ett standardtema
 
 const initialState = {
-  theme: 'dark', //* Standardtema
+  theme: lightTheme, // Se till att detta är ett giltigt tema-objekt
 };
 
 const settingsSlice = createSlice({
@@ -12,7 +12,6 @@ const settingsSlice = createSlice({
     // Ändra temat
     setTheme: (state, action) => {
       state.theme = action.payload; //* Spara det valda temat i Redux
-      applyTheme(action.payload); //* Anropa applyTheme-funktionen när temat ändras
     },
   },
 });
