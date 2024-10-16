@@ -7,6 +7,8 @@ import { darken } from 'polished';
 const ThemedButton = styled.button`
   background-color: ${({ theme }) => theme.buttonBg}; /* Dynamiskt tema */
   color: ${({ theme }) => theme.buttonText}; /* Dynamiskt tema */
+  border: ${({ theme }) => theme.buttonBorder};
+  box-shadow: ${({ theme }) => theme.buttonShadow};
   &:hover {
     background-color: ${({ theme }) => darken(0.1, theme.buttonBg)};
   }

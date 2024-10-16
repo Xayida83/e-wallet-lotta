@@ -2,14 +2,12 @@
 .button {
   display: inline-block;
   border: var(--button-border);
-  padding: var(--padding-small);
+  /* padding: var(--padding-small); */
   font-size: 1rem;
   text-align: center;
   text-decoration: none; /* Ta bort understrykning från länken */
   cursor: pointer;
   border-radius: var(--border-radius);
-  transition: background-color 0.3s ease;
-  box-shadow: 0px 0px 6px var(--button-box-shadow-color);
   & span {
     padding: var(--padding-small);
     border-radius: var(--border-radius);

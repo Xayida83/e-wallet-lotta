@@ -1,20 +1,12 @@
 :root {
   --font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --font-size: 16px;
+  --font-size-xsmall: 12px;
+  --font-size-small: 16px;
+  --font-size-medium: 24px;
+  --font-size-large: 34px;
+
   --line-height: 1.5;
   --font-weight: 400;
-
-  /* Light Theme */
-  --bg-color-light: #ffffff;
-  --text-color-light: #050505;
-
-  /* Dark Theme */
-  --bg-color-dark: #242424;
-  --text-color-dark: #ffffff;
-
-  /* Season/holiday theme */
-  --bg-color-season: #ebb40d;
-  --text-color-season: #070345;
 
   /* Margins and paddings */
   --padding-small: 1rem;
@@ -26,24 +18,6 @@
   --margin-large: 24px;
 
   --border-radius: 5px;
-
-  /* Buttons */
-  --button-bg-color-dark: #242424;
-  --button-text-color-dark: #ffffff;
-  --button-box-shadow-color-dark: #ffffff;
-  --button-border-dark: solid 1px #ffffff;
-
-
-  --button-bg-color-light: #f8f9fa;
-  --button-text-color-light: #000000;
-  --button-box-shadow-color-light: #e16565;
-  --button-border-light: solid 1px #ec4343;
-
- 
-  --button-bg-color-season: #0f0b05;
-  --button-text-color-season: #d7d721;
-  --button-box-shadow-color-season: #d3ee3a;
-  --button-border-season: solid 6px #bb9a15;
 
 
 }
