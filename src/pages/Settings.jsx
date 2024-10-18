@@ -29,15 +29,10 @@ const Settings = () => {
         <Button label="Light"  onClick={() => handleThemeChange(lightTheme)} />
         <Button label="Dark" onClick={() => handleThemeChange(darkTheme)} />
         <Button label="Season/Holiday" onClick={() => handleThemeChange(seasonTheme)} />
-      </div>
-     
-      {/* Radera inaktiva kort */}
-      <div className={styles.deleteInactive}>
-        <h2>Delete all inactive cards:</h2>
+      </div> 
+      <hr />
         <Button label="Delete Inactive Cards" onClick={handleDeleteInactive} />
-      </div>
-
-      <Button label="Back" to="/" />
+        <Button label="Back" to="/" />
     </div>
   );
 };
