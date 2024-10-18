@@ -52,52 +52,44 @@ const CardDetail = () => {
   const isCardActive = card.id === activeCardId;
 
   return (
-    <div className={styles.cardDetailContainer}>
-      {/* Använd Card-komponenten för att visa förhandsvisningen av kortet */}
-      <div className={styles.cardPreview}>
-        <Card
-          cardholder={editedCard.cardholder}
-          cardNumber={editedCard.cardNumber}
-          expireMonth={editedCard.expireMonth}
-          expireYear={editedCard.expireYear}
-          issuer={editedCard.issuer}
-        />
-      </div>
+    <div className={styles.cardDetailPage}>
+       
+      <div className={styles.cardDetailContainer}>
+        {/* Använd Card-komponenten för att visa förhandsvisningen av kortet */}
+        <div className={styles.cardPreview}>
+          <Card
+            cardholder={editedCard.cardholder}
+            cardNumber={editedCard.cardNumber}
+            expireMonth={editedCard.expireMonth}
+            expireYear={editedCard.expireYear}
+            issuer={editedCard.issuer}
+          />
+        </div>
 
-      {/* Redigeringsformulär */}
-      {!isCardActive && (
-        <CardForm
-          cardholder={editedCard.cardholder}
-          setCardholder={(val) => setEditedCard({ ...editedCard, cardholder: val })}
-          cardNumber={editedCard.cardNumber}
-          setCardNumber={(val) => setEditedCard({ ...editedCard, cardNumber: val })}
-          expiryDate={`${editedCard.expireMonth}/${editedCard.expireYear}`}
-          setExpiryDate={(val) => {
-            const [month, year] = val.split('/');
-            setEditedCard({ ...editedCard, expireMonth: month, expireYear: year });
-          }}
-          cvc={editedCard.cvc}
-          setCvc={(val) => setEditedCard({ ...editedCard, cvc: val })}
-          issuer={editedCard.issuer}
-          setIssuer={(val) => setEditedCard({ ...editedCard, issuer: val })}
-          handleSubmit={handleSave}
-          errors={errors}
-        />
-      )}
-      
-
-      {/* Aktivera och radera knappar */}
-      <div className={styles.actions}>
-        {/* Aktivera-knappen visas om kortet är inaktivt */}
-        {!isCardActive && <Button label="Activate card" type="button" onClick={handleActivate} />}
-
-        {/* Radera-knappen visas om kortet är inaktivt */}
-        {!isCardActive && <Button label="Delete card" type="button" onClick={handleDelete} />}
-
-        {/* Om kortet är aktivt, visa ett meddelande */}
-        {isCardActive && <p>This card is active and cannot be edited or deleted.</p>}
-        <Button label="Back" to="/" />
-      </div>
+        {/* Redigeringsformulär */}
+        {!isCardActive && (
+          <CardForm
+            cardholder={editedCard.cardholder}
+            setCardholder={(val) => setEditedCard({ ...editedCard, cardholder: val })}
+            cardNumber={editedCard.cardNumber}
+            setCardNumber={(val) => setEditedCard({ ...editedCard, cardNumber: val })}
+            expiryDate={`${editedCard.expireMonth}/${editedCard.expireYear}`}
+            setExpiryDate={(val) => {
+              const [month, year] = val.split('/');
+              setEditedCard({ ...editedCard, expireMonth: month, expireYear: year });
+            }}
+            cvc={editedCard.cvc}
+            setCvc={(val) => setEditedCard({ ...editedCard, cvc: val })}
+            issuer={editedCard.issuer}
+            setIssuer={(val) => setEditedCard({ ...editedCard, issuer: val })}
+            handleSubmit={handleSave}
+            errors={errors}
+          />
+        )}
+      </div>  
+      {/* Om kortet är aktivt, visa ett meddelande */}
+      {isCardActive && <p>This card is active and cannot be edited or deleted.</p>}
+      <Button label="Back" to="/" />    
     </div>
   );
 };
