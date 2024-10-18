@@ -1,29 +1,41 @@
 export const lightTheme = {
-  buttonBg: '#f0f0f0',
+  buttonBg: '#ff7e5f0f',
   buttonText: '#000000',
-  buttonShadow: '0px 0px 6px #e16565',
-  buttonBorder:'solid 1px #000000',
+  buttonShadow: '2px 6px 10px #435984',
+  buttonBorder:'solid 1px #435984',
 
-  bgColor: '#eee0e0',
+  angle: '135deg',
+  color1: '#ff7e5f',
+  color2: '#feb47b',
+  color3: '#86a8e7',
+  
   textColor: '#000000',
 };
 
 export const darkTheme = {
-  buttonBg: '#333333',
+  buttonBg: '#33333312',
   buttonText: '#ffffff',
-  buttonShadow: '0px 0px 6px #ffffff',
-  buttonBorder:'solid 1px #000000',
+  buttonShadow: '0px 0px 11px #ffffff',
+  buttonBorder:'solid 1px #d6a8a8',
 
-  bgColor: '#242424',
+  angle: '155deg',
+  color1: '#922c13',
+  color2: '#803800',
+  color3: '#010610',
+
   textColor: '#ffffff',
 };
 
 export const seasonTheme = {
-  buttonBg: '#28a745',
-  buttonText: '#ffffff',
-  buttonShadow  : '2px 2px 15px #ec2020',
-  buttonBorder:'solid 1px #000000',
+  buttonBg: '#31ea5b1f',
+  buttonText: '#000',
+  buttonShadow  : '2px 2px 15px #523cbb',
+  buttonBorder:'solid 1px #523cbb40',
 
-  bgColor: '#004d00',
-  textColor: '#ffffff',
+  angle: '135deg',
+  color1: '#ec2020',
+  color2: '#e4650e',
+  color3: '#dfd754',
+
+  textColor: '#000',
 };

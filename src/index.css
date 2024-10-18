@@ -16,7 +16,7 @@ body {
   margin: 01rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
