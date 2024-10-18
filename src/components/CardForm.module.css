@@ -14,6 +14,9 @@ form {
       max-width: 260px;
       background-color: rgba(110, 109, 112, 0.189);
       border-radius: 20px;
+      &:focus {
+        border-color: black;
+      }
     }
     select {
       max-width: fit-content;

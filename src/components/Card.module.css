@@ -3,43 +3,71 @@
   height: 180px;
   position: relative;
   border-radius: 10px;
-  background: linear-gradient(135deg, #323232, #1a1a1a);
+  /* background: linear-gradient(135deg, #323232, #1a1a1a); */
   color: white;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+.mastercard {
+  background: linear-gradient(135deg, gold, #1a1a1a);
+}
+
+.visa {
+  background: linear-gradient(135deg, rgb(13, 119, 154), #81eeb2);
+
+}
+
+.ankademin {
+  background: linear-gradient(135deg, rgb(40 194 224), #bebaba);
+
+}
 
 .cardChip {
-  width: 40px;
-  height: 30px;
-  background-color: gold;
+  width: 73px;
+  height: 59px;
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 11px;
+  left: 8px;
+  border-radius: 7px;
 }
 
 .cardNumber {
-  font-size: 18px;
-  letter-spacing: 2px;
-  margin-top: 50px;
+  position: absolute;
+  left: 35px;
+  bottom: 96px;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
 }
 
 .cardholder {
-  text-transform: uppercase;
-  margin-top: 10px;
+  position: absolute;
+  left: 25px;
+  bottom: 30px;
+  color: white;
   font-size: 14px;
+  letter-spacing: 0.2em;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+
 }
 
 .expiryDate {
-  font-size: 12px;
-  margin-top: 5px;
+  position: absolute;
+  right: 25px;
+  bottom: 30px;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
 }
 
 .cardLogo img {
-  width: 60px;
+  width: 74px;
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  top: 30px;
+  right: 25px;
 }
 
 

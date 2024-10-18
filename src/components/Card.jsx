@@ -2,6 +2,7 @@ import styles from './Card.module.css';
 import visa from '../assets/images/visa.svg'
 import mastercard from '../assets/images/mastercard.svg'
 import ankademin from '../assets/images/ankademin.png'
+import cardChip from '../assets/images/card-chip.png'
 
 const Card = ({ cardholder, cardNumber, expireMonth, expireYear, issuer }) => {
   
@@ -17,16 +18,18 @@ const Card = ({ cardholder, cardNumber, expireMonth, expireYear, issuer }) => {
     // Lägg till mellanslag för formatering
     return maskedNumber.replace(/(\d{4})(?=\d)/g, "$1 ");
   };
+  const truncatedName = cardholder.length > 19 ? cardholder.slice(0, 19) : cardholder;
+
 
   return (
-    <div className={`${styles.cardContainer} ${styles[issuer.toLowerCase()]}`}> {/* Dynamisk klass beroende på kortutgivare */}
+    <div className={`${styles.cardContainer} ${styles[issuer.toLowerCase()]}`}> {/* Dynamisk klass beroende på kortutgivare */} 
       <div className={styles.card}>
-        <div className={styles.cardChip}></div>
+        <img className={styles.cardChip} src={cardChip} alt="Card chip" />
         <div className={styles.cardNumber}>
           {formatCardNumber(cardNumber)}
         </div>  
         <div className={styles.cardholder}>
-          {cardholder.toUpperCase()}
+          {truncatedName.toUpperCase()}
         </div>
         <div className={styles.expiryDate}>
           {expireMonth}/{expireYear} 
