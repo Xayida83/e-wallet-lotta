@@ -1,19 +1,19 @@
 import Button from './Button'; // Din knappkomponent
+import styles from './CardForm.module.css';
 
 const CardForm = ({ cardholder, setCardholder, cardNumber, setCardNumber, expiryDate, setExpiryDate, cvc, setCvc, issuer, setIssuer, handleSubmit, errors }) => {
+
+  const handleExpiryDateChange = (e) => {
+    let value = e.target.value.replace(/\D/g, ''); //* Tar bort alla icke-siffror
+    if (value.length >= 2) {
+      value = value.slice(0, 2) + '/' + value.slice(2);
+    }
+    setExpiryDate(value);
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Cardholder Name:</label>
-        <input 
-          type="text" 
-          value={cardholder} 
-          onChange={(e) => setCardholder(e.target.value)} 
-          required
-          pattern="^[A-Za-zÅÄÖåäö\s]+$"   
-          title="Cardholder name must only contain letters and spaces"
-        />
-      </div>
       <div>
         <label>Card Number:</label>
         <input
@@ -26,22 +26,32 @@ const CardForm = ({ cardholder, setCardholder, cardNumber, setCardNumber, expiry
           title="Card number must be exactly 16 digits only"
         />
       </div>
+        <label>Cardholder Name:</label>
+        <input 
+          type="text" 
+          value={cardholder} 
+          onChange={(e) => setCardholder(e.target.value)} 
+          required
+          pattern="^[A-Za-zÅÄÖåäö\s]+$"   
+          title="Cardholder name must only contain letters and spaces"
+        />
+      </div>      
       <div>
-        <label>MM/ÅÅ</label>
+        <label>MM/YY</label>
         <input
           type="text"
           value={expiryDate}
-          onChange={(e) => setExpiryDate(e.target.value)}
+          onChange={handleExpiryDateChange}
           required
-          placeholder="MM/ÅÅ"
-          pattern="^(0[1-9]|1[0-2])\/\d{2}$"  
+          placeholder="MM/YY"
+          // pattern="^(0[1-9]|1[0-2])\/\d{2}$"  
           title="Expiration date must be in format MM/YY"
           maxLength="5"
         />
         {errors?.expiryDate && <p style={{ color: 'red' }}>{errors.expiryDate}</p>}
       </div>
       <div>
-        <label>CVC</label>
+        <label>Security Number</label>
         <input
           type="text"
           value={cvc}
@@ -49,7 +59,7 @@ const CardForm = ({ cardholder, setCardholder, cardNumber, setCardNumber, expiry
           required
           pattern="\d{3}" 
           maxLength="3"
-          placeholder="3 siffror"
+          placeholder="CVC"
           title="CVC must be 3 digits"
         />
         {errors?.cvc && <p style={{ color: 'red' }}>{errors.cvc}</p>}
@@ -63,7 +73,6 @@ const CardForm = ({ cardholder, setCardholder, cardNumber, setCardNumber, expiry
         </select>
       </div>
       <Button label="Save" type="submit" />
-      {/* <Button label="Cancel" to="/" /> */}
     </form>
   );
 };

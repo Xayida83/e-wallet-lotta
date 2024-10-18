@@ -19,20 +19,19 @@ const Card = ({ cardholder, cardNumber, expireMonth, expireYear, issuer }) => {
   };
 
   return (
-    <div className={`${styles.card} ${styles[issuer.toLowerCase()]}`}> {/* Dynamisk klass beroende på kortutgivare */}
-      <div className={styles.cardContent}>
+    <div className={`${styles.cardContainer} ${styles[issuer.toLowerCase()]}`}> {/* Dynamisk klass beroende på kortutgivare */}
+      <div className={styles.card}>
         <div className={styles.cardChip}></div>
-        <div className={styles.cardDetails}> 
-          <div className={styles.cardNumber}>
-            {formatCardNumber(cardNumber)}
-          </div>
-          <div className={styles.cardholder}>
-            {cardholder.toUpperCase()}
-          </div>
-          <div className={styles.expiryDate}>
-            VALID THRU: {expireMonth}/{expireYear} 
-          </div>
+        <div className={styles.cardNumber}>
+          {formatCardNumber(cardNumber)}
+        </div>  
+        <div className={styles.cardholder}>
+          {cardholder.toUpperCase()}
         </div>
+        <div className={styles.expiryDate}>
+          {expireMonth}/{expireYear} 
+        </div>
+        
         <div className={styles.cardLogo}>
           {issuer === "MasterCard" && <img src={mastercard} alt="MasterCard Logo" />}
           {issuer === "Visa" && <img src={visa} alt="Visa Logo" />}

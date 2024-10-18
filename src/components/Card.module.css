@@ -1,66 +1,46 @@
-.card {
-  max-width: 16rem;
-  height: 10rem;
-  border-radius: 15px;
-  padding: 20px;
-  color: white;
+.cardContainer {
+  width: 300px;
+  height: 180px;
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
-
-.cardContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #323232, #1a1a1a);
+  color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .cardChip {
   width: 40px;
   height: 30px;
-  background-color: #ccc;
-  border-radius: 5px;
-}
-
-.cardDetails {
-  display: flex;
-  flex-direction: column;
+  background-color: gold;
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
 .cardNumber {
-  font-size: 1.4em;
+  font-size: 18px;
   letter-spacing: 2px;
+  margin-top: 50px;
 }
 
 .cardholder {
-  font-size: 1.2em;
+  text-transform: uppercase;
   margin-top: 10px;
+  font-size: 14px;
 }
 
 .expiryDate {
-  font-size: 0.9em;
+  font-size: 12px;
+  margin-top: 5px;
 }
 
-.cardLogo {
-  width: 5rem;
-  align-self: flex-end;
-}
 .cardLogo img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+  width: 60px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
 
-.mastercard {
-  background-color: gold;
-}
 
-.visa {
-  background-color: lightblue;
-}
 
-.ankademin {
-  background-color: aquamarine;
-}

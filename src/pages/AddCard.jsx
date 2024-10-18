@@ -6,6 +6,7 @@ import Card from '../components/Card';
 import Button from '../components/Button';
 import CardForm from '../components/CardForm';
 import { validateForm } from '../helpers/validateForm';
+import styles from './AddCard.module.css';
 
 
 const AddCard = () => {
@@ -50,31 +51,34 @@ const AddCard = () => {
   };
 
   return (
-    <div>
+    <div className={styles.addCardPage}>
       <h1>Add a New Card</h1>
+      <div className={styles.container}>
+        <Card
+          cardholder={cardholder || 'YOUR NAME'}
+          cardNumber={cardNumber || '0000 0000 0000 0000'}
+          expireMonth={expiryDate ? expiryDate.split('/')[0] : 'MM'}
+          expireYear={expiryDate ? expiryDate.split('/')[1] : 'YY'}  
+          issuer={issuer}
+        />
 
-      <Card
-        cardholder={cardholder || 'YOUR NAME'}
-        cardNumber={cardNumber || '0000 0000 0000 0000'}
-        expireMonth={expiryDate ? expiryDate.split('/')[0] : 'MM'}
-        expireYear={expiryDate ? expiryDate.split('/')[1] : 'YY'}  
-        issuer={issuer}
-      />
+        <CardForm 
+          cardholder={cardholder}
+          setCardholder={setCardholder}
+          cardNumber={cardNumber}
+          setCardNumber={setCardNumber}
+          expiryDate={expiryDate}
+          setExpiryDate={setExpiryDate}
+          cvc={cvc}
+          setCvc={setCvc}
+          issuer={issuer}
+          setIssuer={setIssuer}
+          handleSubmit={handleSubmit}
+          errors={errors}
+        />
 
-      <CardForm 
-        cardholder={cardholder}
-        setCardholder={setCardholder}
-        cardNumber={cardNumber}
-        setCardNumber={setCardNumber}
-        expiryDate={expiryDate}
-        setExpiryDate={setExpiryDate}
-        cvc={cvc}
-        setCvc={setCvc}
-        issuer={issuer}
-        setIssuer={setIssuer}
-        handleSubmit={handleSubmit}
-        errors={errors}
-      />
+        <Button label="Cancel" to="/" />
+      </div>
     </div>
   );
 };
