@@ -5,24 +5,23 @@ form {
 
   div {
     display: flex;
-    flex-direction: column;
-
-    label {
-      padding-left: 8px;
+    flex-direction: column;    
+  }
+  label {
+    padding-left: 8px;
+  }
+  input {
+    max-width: 260px;
+    background-color: rgba(110, 109, 112, 0.189);
+    border-radius: 20px;
+    &:focus {
+      border-color: black;
     }
-    input {
-      max-width: 260px;
-      background-color: rgba(110, 109, 112, 0.189);
-      border-radius: 20px;
-      &:focus {
-        border-color: black;
-      }
-    }
-    select {
-      max-width: fit-content;
-      background-color: rgba(110, 109, 112, 0.189);
-      border-radius: 20px;
-    }
+  }
+  select {
+    max-width: fit-content;
+    background-color: rgba(110, 109, 112, 0.189);
+    border-radius: 20px;
   }
   
   button {
