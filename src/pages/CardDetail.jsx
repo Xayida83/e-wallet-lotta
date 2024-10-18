@@ -53,6 +53,12 @@ const CardDetail = () => {
 
   return (
     <div className={styles.cardDetailPage}>
+
+      {/* Aktivera-knappen visas om kortet är inaktivt */}
+      {!isCardActive && <Button label="Activate card" type="button" onClick={handleActivate} />}
+
+      {/* Radera-knappen visas om kortet är inaktivt */}
+      {!isCardActive && <Button label="Delete card" type="button" onClick={handleDelete} />}
        
       <div className={styles.cardDetailContainer}>
         {/* Använd Card-komponenten för att visa förhandsvisningen av kortet */}
