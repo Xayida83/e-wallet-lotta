@@ -5,7 +5,7 @@ import { darken } from 'polished';
 // Styled component för att hantera temabaserad styling
 const ThemedButton = styled.button`
   background-color: ${({ theme }) => theme.buttonBg}; /* Dynamiskt tema */
-  color: ${({ theme }) => theme.buttonText}; /* Dynamiskt tema */
+  color: ${({ danger, theme }) => danger ? 'red' : theme.buttonText}; /* Kontrollera om danger prop finns */
   border: ${({ theme }) => theme.buttonBorder};
   box-shadow: ${({ theme }) => theme.buttonShadow};
   width: var(--button-width);
@@ -22,17 +22,17 @@ const ThemedButton = styled.button`
 `;
 
 // Din befintliga Button-komponent
-const Button = ({ label, to, onClick }) => {
+const Button = ({ label, to, onClick, danger = false }) => {
   if (to) {
     return (
       <Link to={to}> 
-        <ThemedButton as="button">{label}</ThemedButton> {/* Temadelen hanteras här */}
+        <ThemedButton as="button" danger={danger}>{label}</ThemedButton> {/* Temadelen hanteras här */}
       </Link>
     );
   }
  
   return (
-    <ThemedButton onClick={onClick}>
+    <ThemedButton onClick={onClick} danger={danger}>
       {label}
     </ThemedButton>
   );

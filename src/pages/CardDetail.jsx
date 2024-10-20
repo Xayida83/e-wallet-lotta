@@ -58,7 +58,7 @@ const CardDetail = () => {
       {!isCardActive && <Button label="Activate card" type="button" onClick={handleActivate} />}
 
       {/* Radera-knappen visas om kortet är inaktivt */}
-      {!isCardActive && <Button label="Delete card" type="button" onClick={handleDelete} />}
+      {!isCardActive && <Button label="Delete card" type="button" onClick={handleDelete} danger={true}/>}
        
       <div className={styles.cardDetailContainer}>
         {/* Använd Card-komponenten för att visa förhandsvisningen av kortet */}

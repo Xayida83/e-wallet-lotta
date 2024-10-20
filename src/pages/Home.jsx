@@ -45,7 +45,6 @@ const Home = () => {
       </ul>
        {/* Visa "Add New Card"-knappen endast om användaren har färre än 4 kort */}
       {cards.length < maxCards ? (
-        // <Button label="Add New Card" to="/addcard" type="button" />
         <Button label="Add A Card" to="/addCard" />
       ) : (
         <p>You have reached the maximum number of cards (4).</p>

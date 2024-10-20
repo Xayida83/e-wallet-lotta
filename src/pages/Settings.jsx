@@ -31,7 +31,7 @@ const Settings = () => {
         <Button label="Season/Holiday" onClick={() => handleThemeChange(seasonTheme)} />
       </div> 
       <hr />
-        <Button label="Delete Inactive Cards" onClick={handleDeleteInactive} />
+        <Button label="Delete All Inactive Cards" onClick={handleDeleteInactive} danger={true} />
         <Button label="Back" to="/" />
     </div>
   );

@@ -32,7 +32,7 @@ export const seasonTheme = {
   buttonShadow  : '2px 2px 15px #523cbb',
   buttonBorder:'solid 1px #523cbb40',
 
-  angle: '135deg',
+  angle: '150deg',
   color1: '#ec2020',
   color2: '#e4650e',
   color3: '#dfd754',
