@@ -12,33 +12,34 @@ const CardForm = ({ cardholder, setCardholder, cardNumber, setCardNumber, expiry
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-      <div>
-        <label>Card Number:</label>
-        <input
-          type="text"
-          value={cardNumber}
-          onChange={(e) => setCardNumber(e.target.value)}
-          required
-          pattern="\d{16}"  
-          maxLength="16" 
-          title="Card number must be exactly 16 digits only"
-        />
-      </div>
-        <label>Cardholder Name:</label>
-        <input 
-          type="text" 
-          value={cardholder} 
-          onChange={(e) => setCardholder(e.target.value)} 
-          required
-          pattern="^[A-Za-zÅÄÖåäö\s]+$"   
-          title="Cardholder name must only contain letters and spaces"
-        />
-      </div>      
-      <div>
-        <label>MM/YY</label>
-        <input
+    <form className={styles.form} onSubmit={handleSubmit}>
+      
+        <div className={styles.formDiv}>
+          <label className={styles.formLabel}>Card Number:</label>
+          <input className={styles.formInput}
+            type="text"
+            value={cardNumber}
+            onChange={(e) => setCardNumber(e.target.value)}
+            required
+            pattern="\d{16}"  
+            maxLength="16" 
+            title="Card number must be exactly 16 digits only"
+          />
+        </div>
+        <div className={styles.formDiv}>
+          <label className={styles.formLabel}>Cardholder Name:</label>
+          <input className={styles.formInput}
+            type="text" 
+            value={cardholder} 
+            onChange={(e) => setCardholder(e.target.value)} 
+            required
+            pattern="^[A-Za-zÅÄÖåäö\s]+$"   
+            title="Cardholder name must only contain letters and spaces"
+          />
+        </div>    
+      <div className={styles.formDiv}>
+        <label className={styles.formLabel}>MM/YY</label>
+        <input className={styles.formInput}
           type="text"
           value={expiryDate}
           onChange={handleExpiryDateChange}
@@ -50,9 +51,9 @@ const CardForm = ({ cardholder, setCardholder, cardNumber, setCardNumber, expiry
         />
         {errors?.expiryDate && <p style={{ color: 'red' }}>{errors.expiryDate}</p>}
       </div>
-      <div>
-        <label>Security Number</label>
-        <input
+      <div className={styles.formDiv}>
+        <label className={styles.formLabel}>Security Number</label>
+        <input className={styles.formInput}
           type="text"
           value={cvc}
           onChange={(e) => setCvc(e.target.value)}
@@ -65,14 +66,16 @@ const CardForm = ({ cardholder, setCardholder, cardNumber, setCardNumber, expiry
         {errors?.cvc && <p style={{ color: 'red' }}>{errors.cvc}</p>}
       </div>
       <div>
-        <label>Issuer:</label>
-        <select value={issuer} onChange={(e) => setIssuer(e.target.value)}>
-          <option value="MasterCard">MasterCard</option>
+        <label className={styles.formLabel}>Issuer:</label>
+        <select className={styles.formSelect}
+         value={issuer} 
+         onChange={(e) => setIssuer(e.target.value)}>
+          <option className={styles.formOption} value="MasterCard">MasterCard</option>
           <option value="Visa">Visa</option>
           <option value="Ankademin">Ankademin</option>
         </select>
       </div>
-      <Button label="Save" type="submit" />
+      <Button className={styles.formButton}  label="Save" type="submit" />
     </form>
   );
 };

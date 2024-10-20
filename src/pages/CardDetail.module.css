@@ -8,43 +8,12 @@
 .cardDetailContainer {
   display: flex;
   flex-flow: row wrap;
-  gap: 1rem;
   justify-content: center;
 }
 
 .cardPreview {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
-}
-
-.cardForm {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.row {
-  display: flex;
-  gap: 10px;
-}
-
-input, select {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: #1a1a1a;
-  color: white;
-}
-
-input:focus, select:focus {
-  border-color: #0055ff;
-  outline: none;
-}
-
-.actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
+  align-items: center;
+  margin-bottom: 1rem;
 }
