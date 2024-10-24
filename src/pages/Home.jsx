@@ -30,7 +30,8 @@ const Home = () => {
       <ul className={styles.cardList}>
         {sortedCards.map((card, index) => (
           <li key={index}>
-            <div onClick={() => navigate(`/card/${card.id}`)}>
+            <div onClick={() => navigate(`/card/${card.id}`)}
+               className={card.id === activeCardId ? styles.activeCard : ''}>
               {card.id === activeCardId && <p>Active Card</p>}
               <Card
                 cardholder={card.cardholder}

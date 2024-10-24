@@ -26,3 +26,8 @@
 p {
   margin: 0;
 }
+.activeCard {
+  border: 2px solid #00bfff;
+  border-radius: 8px; 
+  padding: 10px; 
+}
