@@ -1,8 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  cards: [],
-  activeCardId: null,
+  cards: [
+    {
+      id: '1',
+      cardholder: 'Charlotta Lindberg',
+      cardNumber: '1234567812345678',
+      expireMonth: '04',
+      expireYear: '25',
+      cvc: '123',
+      issuer: 'Visa',
+      active: true,
+    },
+    {
+      id: '2',
+      cardholder: 'Charlotta Lindberg',
+      cardNumber: '8765432187654321',
+      expireMonth: '10',
+      expireYear: '28',
+      cvc: '456',
+      issuer: 'MasterCard',
+      active: false,
+    },
+  ],
+  activeCardId: '1',
 };
 
 const cardSlice = createSlice({
